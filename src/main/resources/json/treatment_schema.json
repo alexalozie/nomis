@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Treatment",
+  "description": "Treatment data from EMR",
+  "type": "object",
+  "properties":{
+    "Container": {
+      "MessageHeader": {
+        "MessageStatusCode": "INITIAL",
+        "MessageCreationDateTime": "2020-10-26T07:36:28",
+        "MessageSchemaVersion": 1000,
+        "MessageUniqueID": "string",
+        "MessageSendingOrganization": {
+          "FacilityName": "string",
+          "FacilityID": "string",
+          "FacilityTypeCode": "LGA"
+        }
+      },
+      "PersonRecord": {
+        "PatientDemographics": {
+          "PatientIdentifier": "string",
+          "IdentifierChange": {
+            "PatientIdentifierChange": true,
+            "OldPatientIdentifier": "string"
+          },
+          "TreatmentFacility": {
+            "FacilityName": "string",
+            "FacilityID": "string",
+            "FacilityTypeCode": "LGA"
+          },
+          "OtherPatientIdentifiers": {
+            "Identifier": {
+              "IDNumber": "string",
+              "IDTypeCode": "string"
+            }
+          }
+        },
+        "treatment": {
+          "Encounters": {
+            "HIVEncounter": {
+              "VisitID": "string",
+              "VisitDate": "2002-05-25",
+              "DurationOnArt": 3,
+              "Weight": 3,
+              "ChildHeight": 3,
+              "BloodPressure": "string",
+              "EDDandPMTCTLink": "NK",
+              "PatientFamilyPlanningCode": "NOFP",
+              "PatientFamilyPlanningMethodCode": "string",
+              "FunctionalStatus": "B",
+              "WHOClinicalStage": 1,
+              "TBStatus": 1,
+              "OtherOIOtherProblems": "string",
+              "NotedSideEffects": "string",
+              "ARVDrugRegimen": {
+                "Code": "string",
+                "CodeDescTxt": "string"
+              },
+              "ARVDrugAdherence": "F",
+              "WhyPoorFairARVDrugAdherence": 1,
+              "CotrimoxazoleDose": {
+                "Code": "string",
+                "CodeDescTxt": "string"
+              },
+              "CotrimoxazoleAdherence": "G",
+              "WhyPoorFairCotrimoxazoleDrugAdherence": 7,
+              "INHDose": {
+                "Code": "string",
+                "CodeDescTxt": "string"
+              },
+              "INHAdherence": "P",
+              "WhyPoorFairINHDrugAdherence": 11,
+              "CD4": 3,
+              "CD4TestDate": "2005-05-29+01:00",
+              "ReasonForRegimenSwitchSubs": "string",
+              "PrescribedRegimenInitialIndicator": false,
+              "PrescribedRegimenCurrentIndicator": true,
+              "TypeOfPreviousExposureCode": "string",
+              "PoorAdherenceIndicator": true,
+              "ReasonForPoorAdherence": "string",
+              "ReasonRegimenEndedCode": "string",
+              "SubstitutionIndicator": true,
+              "SwitchIndicator": true,
+              "NextAppointmentDate": "2015-07-10"
+            }
+          },
+          "LaboratoryReport": {
+            "VisitID": "string",
+            "VisitDate": "2008-10-09",
+            "LaboratoryTestIdentifier": "string",
+            "BaselineRepeatCode": "R",
+            "ARTStatusCode": "string",
+            "CollectionDate": "2007-06-22+01:00",
+            "LaboratoryOrderAndResult": {
+              "LaboratoryTestTypeCode": "string",
+              "OrderedTestDate": "2013-11-24+01:00",
+              "LaboratoryOrderedTest": {
+                "Code": "string",
+                "CodeDescTxt": "string"
+              },
+              "LaboratoryResultedTest": {
+                "Code": "string",
+                "CodeDescTxt": "string"
+              },
+              "LaboratoryResult": {
+                "AnswerCode": {
+                  "Code": "string",
+                  "CodeDescTxt": "string",
+                  "CodeSystemCode": "string",
+                  "Text": "string"
+                },
+                "AnswerDate": "2017-03-08",
+                "AnswerDateTime": "2009-06-10T03:04:10",
+                "AnswerNumeric": {
+                  "ComparatorCode": "string",
+                  "Value1": 150,
+                  "SeperatorCode": "string",
+                  "Value2": 150,
+                  "Unit": {
+                    "Code": "string",
+                    "CodeDescTxt": "string",
+                    "CodeSystemCode": "string",
+                    "Text": "string"
+                  }
+                },
+                "AnswerText": "string"
+              },
+              "ResultedTestDate": "2010-04-16+01:00",
+              "OtherLaboratoryInformation": "string"
+            },
+            "Clinician": "string",
+            "ReportedBy": "string",
+            "CheckedBy": "string"
+          },
+          "Regimen": {
+            "VisitID": "string",
+            "VisitDate": "2016-10-25+01:00",
+            "PrescribedRegimen": {
+              "Code": "string",
+              "CodeDescTxt": "string"
+            },
+            "PrescribedRegimenTypeCode": "string",
+            "PrescribedRegimenLineCode": "string",
+            "PrescribedRegimenDuration": "string",
+            "PrescribedRegimenDispensedDate": "2014-01-07",
+            "DateRegimenStarted": "2011-09-24+01:00",
+            "DateRegimenStartedDD": "st",
+            "DateRegimenStartedMM": "st",
+            "DateRegimenStartedYYYY": "stri",
+            "DateRegimenEnded": "2015-07-11",
+            "DateRegimenEndedDD": "st",
+            "DateRegimenEndedMM": "st",
+            "DateRegimenEndedYYYY": "stri"
+          }
+        }
+      }
+    }
+
+  },
+  "required": []
+
+}

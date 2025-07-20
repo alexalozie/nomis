@@ -1,0 +1,108 @@
+{
+  "details": {
+    "state": "",
+    "lga": "",
+    "ward": "",
+    "community": "",
+    "assessmentDate": "2021-08-04",
+    "uniqueId": "FCT9-623521",
+    "street": "No 5 Port Harcourt Street, Garki",
+    "latitude": "",
+    "longitude": "",
+    "noOfChildren": "7",
+    "noOfPeople": "10",
+    "primaryCareGiver": {
+      "lastName": "Obanisola",
+      "firstName": "Tobi",
+      "sex": {
+        "id": 2,
+        "codesetGroup": "SEX",
+        "language": "en",
+        "display": "Male",
+        "version": "1.0",
+        "code": "976cac0a-5bee-4421-9cbc-0bd8a487f077"
+      },
+      "dob": "1990-08-03",
+      "maritalStatus": "3",
+      "mobilePhoneNumber": "08056346016",
+      "occupation": "",
+      "hivStatus": {},
+      "enrolledOnART": {},
+      "artEnrolmentDate": "",
+      "hivTestDate": "",
+      "facilityName": "",
+      "artUidNo": ""
+    },
+    "assessment": {
+      "question1": {},
+      "comment1": "",
+      "question3": {},
+      "comment2": "",
+      "question5": {},
+      "comment3": "",
+      "question16": {},
+      "comment4": "",
+      "question17": {},
+      "comment5": "",
+      "question18": {},
+      "comment6": "",
+      "question7": {},
+      "comment7": "",
+      "question8": {},
+      "comment8": "",
+      "question19": {},
+      "comment9": "",
+      "question11": {},
+      "comment10": "",
+      "question12": {},
+      "comment11": "",
+      "question13": {},
+      "comment12": "",
+      "question20": {},
+      "comment13": "",
+      "question14": {},
+      "comment14": "",
+      "question15": {},
+      "comment15": ""
+    },
+    "household": {},
+    "householdMember": {}
+  },
+  "householdMemberDTO": {
+    "details": {
+      "lastName": "Obanisola",
+      "firstName": "Tobi",
+      "sex": {
+        "id": 2,
+        "codesetGroup": "SEX",
+        "language": "en",
+        "display": "Male",
+        "version": "1.0",
+        "code": "976cac0a-5bee-4421-9cbc-0bd8a487f077"
+      },
+      "dob": "1990-08-03",
+      "maritalStatus": "3",
+      "mobilePhoneNumber": "08056346016",
+      "occupation": "",
+      "hivStatus": {},
+      "enrolledOnART": {},
+      "artEnrolmentDate": "",
+      "hivTestDate": "",
+      "facilityName": "",
+      "artUidNo": ""
+    },
+    "householdMemberType": 0
+  },
+  "householdAddressDTOS": [
+    {
+      "state": "",
+      "lga": "",
+      "street": "No 5 Port Harcourt Strret, Garki",
+      "ward": "",
+      "community": "",
+      "latitude": "",
+      "longitude": ""
+    }
+  ],
+  "uniqueId": "FCT9-623521"
+}

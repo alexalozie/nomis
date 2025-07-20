@@ -1,0 +1,42 @@
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show  {
+    color: #f1f2f5 !important;
+    background-color: #096150;
+}
+
+.nav-link {
+    color: #096150 !important;
+}
+.nav-link:hover {
+    color: #1e9548 !important;
+}
+
+.nav-tabs {
+    border: 1px solid;
+    border-top: 1px solid;
+    border-color: #096150;
+}
+
+.nav-tabs {
+    border-color: #096150;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+    border-right: 1px solid #096150;
+}
+
+/*css for semantics ui tab menu*/
+.ui.tabular.menu .active.item {
+    background: none #305c4a;
+    border-color: #d4d4d5;
+    color: #d4d4d5;
+}
+
+
+.ui.tabular.menu .item {
+    background-color: #fff;
+}
+
+
+

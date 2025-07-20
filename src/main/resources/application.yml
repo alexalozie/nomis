@@ -1,0 +1,94 @@
+applicationInfo:
+    applicationId: nomis
+    applicationName: NOMIS
+    buildDate: "@maven.build.timestamp@"
+    buildId: "@pom.version@-@build.revision@"
+build:
+    number: "@build.revision@"
+logging:
+    request-response:
+        enabled: false
+    file:
+        name: application-debug.log
+
+server:
+    compression:
+        enabled: true
+        mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    http2:
+        enabled: true
+    port: 8686
+    tomcat:
+        uri-encoding: UTF-8
+        connection-timeout: 20s
+
+spring:
+    datasource:
+        username: postgres
+        password: secret
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/nomis4?stringtype=unspecified
+        sqlScriptEncoding: UTF-8
+        hibernate:
+            event.merge.enty_copy_observer: allow
+        hikari:
+            auto-commit: false
+            data-source-properties:
+                cachePrepStmts: true
+                prepStmtCacheSize: 250
+                prepStmtCacheSqlLimit: 2048
+                useServerPrepStmts: true
+
+    jpa:
+        database: POSTGRESQL
+        show-sql: false
+        open-in-view: false
+        properties:
+            hibernate.enable_lazy_load_no_trans: true
+        hibernate:
+            ddl-auto: none
+    liquibase:
+        change-log: classpath:db/schema/schema1.xml
+        enabled: true
+    mail:
+        host: localhost
+        port: 25
+        username:
+        password:
+        jndi-name:
+    servlet:
+        multipart:
+            max-file-size: 200MB
+            max-request-size: 200MB
+            enabled: true
+            file-size-threshold: 2KB
+        jackson:
+            serialization:
+                fail-on-empty-beans: false
+    banner:
+        location: banner.txt
+
+jwt:
+    # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+    base64-secret: YzMzNjBmOTcwN2Y4YmNmNWViMzhhNjk5MjhmMmY5OTZkNWUxYzIwM2Q5ZWU4OWIzNTZmZTBlOTMzZjFhN2ZmMzBlMDIzMGRkYWNkYTIwOThmY2E1ZjNhYTAxODA0NTJkY2U5NTYxZTI1YjA1NTIyN2IwMTZlMTRlMDM0OTIyNzM=
+    # Token is valid 12 hours
+    token-validity-in-milli-seconds: 43200000
+    token-validity-in-milli-seconds-for-remember-me: 86400000
+
+management:
+    endpoints:
+        web:
+            base-path: /management
+            exposure:
+                include: ["configprops", "env", "health", 'jhimetrics', "info", "threaddump", "logfile" ]
+        enabled-by-default: true
+    endpoint:
+        health:
+            show-details: WHEN_AUTHORIZED
+        jhimetrics:
+            enabled: true
+application:
+    async:
+        core-pool-size: 10
+        max-pool-size: 50
+        queue-capacity: 10000

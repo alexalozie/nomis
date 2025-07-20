@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2022030119970427-01" author="niyi">
+        <sqlFile path="db/schema/sequence_script.sql" splitStatements="false"/>
+    </changeSet>
+    <!-- create database tables -->
+    <changeSet id="2022030119970428-01" author="niyi">
+        <sqlFile dbms="postgresql"
+                 path="create-table.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="false"
+                 stripComments="true"/>
+    </changeSet>
+
+    <!-- add unique constraints -->
+    <changeSet id="unique_constraint-01" author="niyi">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="org_unit_level_name_unique_constraint"
+                             schemaName="public"
+                             tableName="organisation_unit_level"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-02" author="niyi">
+        <addUniqueConstraint columnNames="datim_code"
+                             constraintName="organisation_unit_datim_unique_constraint"
+                             schemaName="public"
+                             tableName="organisation_unit"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-03" author="niyi">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="cbo_name_unique_constraint"
+                             schemaName="public"
+                             tableName="cbo"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-04" author="niyi">
+        <addUniqueConstraint columnNames="code"
+                             constraintName="cbo_code_unique_constraint"
+                             schemaName="public"
+                             tableName="cbo"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-05" author="niyi">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="donor_name_unique_constraint"
+                             schemaName="public"
+                             tableName="donor"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-06" author="niyi">
+        <addUniqueConstraint columnNames="code"
+                             constraintName="donor_code_unique_constraint"
+                             schemaName="public"
+                             tableName="donor"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-07" author="niyi">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="implementer_name_unique_constraint"
+                             schemaName="public"
+                             tableName="implementer"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-08" author="niyi">
+        <addUniqueConstraint columnNames="code"
+                             constraintName="implementer_code_unique_constraint"
+                             schemaName="public"
+                             tableName="implementer"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-09" author="niyi">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="form_name_unique_constraint"
+                             schemaName="public"
+                             tableName="form"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint-10" author="niyi">
+        <addUniqueConstraint columnNames="code"
+                             constraintName="form_code_unique_constraint"
+                             schemaName="public"
+                             tableName="form"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint_11" author="niyi">
+        <addUniqueConstraint columnNames="user_name"
+                             constraintName="application_user_username_unique_constraint"
+                             schemaName="public"
+                             tableName="application_user"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint_12" author="niyi">
+        <addUniqueConstraint columnNames="email"
+                             constraintName="application_user_email_unique_constraint"
+                             schemaName="public"
+                             tableName="application_user"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint_13" author="niyi">
+        <addUniqueConstraint columnNames="description"
+                             constraintName="cbo_project_description_unique_constraint"
+                             schemaName="public"
+                             tableName="cbo_project"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint_14" author="niyi">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="domain_name_unique_constraint"
+                             schemaName="public"
+                             tableName="domain"
+                             validate="true"/>
+    </changeSet>
+<!--    <changeSet id="unique_constraint_15" author="niyi">-->
+<!--        <addUniqueConstraint columnNames="name"-->
+<!--                             constraintName="ovc_service_name_unique_constraint"-->
+<!--                             schemaName="public"-->
+<!--                             tableName="ovc_service"-->
+<!--                             validate="true"/>-->
+<!--    </changeSet>-->
+    <changeSet id="unique_constraint_16" author="niyi">
+        <addUniqueConstraint columnNames="description"
+                             constraintName="regimen_type_description_unique_constraint"
+                             schemaName="public"
+                             tableName="regimen_type"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint_17" author="niyi">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="report_info_unique_constraint"
+                             schemaName="public"
+                             tableName="report_info"
+                             validate="true"/>
+    </changeSet>
+
+    <changeSet id="unique_constraint_18" author="niyi">
+        <addUniqueConstraint columnNames="unique_id"
+                             constraintName="household_unique_id_constraint"
+                             schemaName="public"
+                             tableName="household"
+                             validate="true"/>
+    </changeSet>
+    <changeSet id="unique_constraint_19" author="niyi">
+        <addUniqueConstraint columnNames="unique_id"
+                             constraintName="household_member_unique_id_constraint"
+                             schemaName="public"
+                             tableName="household_member"
+                             validate="true"/>
+    </changeSet>
+
+    <!-- import database data -->
+    <changeSet id="2022030119970428-02" author="niyi">
+        <sqlFile path="db/schema/data/implementer.sql" relativeToChangelogFile="false" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-03" author="niyi">
+        <sqlFile path="db/schema/data/organisation_unit_level.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-04" author="niyi">
+        <sqlFile path="db/schema/data/organisation_unit.sql" splitStatements="true"/>
+    </changeSet>
+    <changeSet id="2022030119970428-05" author="niyi">
+        <sqlFile path="db/schema/data/organisation_unit_hierarchy.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-06" author="niyi">
+        <sqlFile path="db/schema/data/role.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-07" author="niyi">
+        <sqlFile path="db/schema/data/permission.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-08" author="niyi">
+        <sqlFile path="db/schema/data/role_permission.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-21" author="niyi">
+        <sqlFile path="db/schema/data/application_user.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-22" author="niyi">
+        <sqlFile path="db/schema/data/application_user_role.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-26" author="niyi">
+        <sqlFile path="db/schema/data/donor.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-27" author="niyi">
+        <sqlFile path="db/schema/data/cbo.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-28" author="niyi">
+        <sqlFile path="db/schema/data/cbo_project.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-29" author="niyi">
+        <sqlFile path="db/schema/data/cbo_project_location.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-25" author="niyi">
+        <sqlFile path="db/schema/data/application_user_cbo_project.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-09" author="niyi">
+        <sqlFile path="db/schema/data/domain.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="20220301199704228-10" author="niyi">
+        <sqlFile path="db/schema/data/ovc_service.sql" splitStatements="true"/>
+    </changeSet>
+    <changeSet id="2022030119970428-11" author="niyi">
+        <sqlFile path="db/schema/data/item.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-12" author="niyi">
+        <sqlFile path="db/schema/data/regimen_type.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-13" author="niyi">
+        <sqlFile path="db/schema/data/drug.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-14" author="niyi">
+        <sqlFile path="db/schema/data/regimen.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-15" author="niyi">
+        <sqlFile path="db/schema/data/regimen_drug.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-16" author="niyi">
+        <sqlFile path="db/schema/data/form.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-17" author="niyi">
+        <sqlFile path="db/schema/data/flag.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-18" author="niyi">
+        <sqlFile path="db/schema/data/form_flag.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-19" author="niyi">
+        <sqlFile path="db/schema/data/application_codeset.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-20" author="niyi">
+        <sqlFile path="db/schema/data/report_info.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-23" author="niyi">
+        <sqlFile path="db/schema/alter_table.sql" splitStatements="false"/>
+    </changeSet>
+    <changeSet id="2022030119970428-24" author="niyi">
+        <sqlFile path="db/schema/function.sql" splitStatements="false"/>
+    </changeSet>
+
+    <changeSet id="202209133945-01" author="niyi">
+        <validCheckSum>8:47c4a0d99c50828edf03ea001e3aefe0</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="data_log"/>
+            </not>
+        </preConditions>
+        <createTable tableName="data_log">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="identifier" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="202209133945-02" author="niyi">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="file_data"/>
+            </not>
+        </preConditions>
+        <createTable tableName="file_data">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="file_name" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_type" type="varchar(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data" type="BYTEA" />
+            <column name="last_updated" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
